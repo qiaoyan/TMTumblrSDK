@@ -84,7 +84,7 @@
     if ([topLevelErrors isKindOfClass:[NSArray class]]) {
         return [[[TMAPIErrorFactory alloc] initWithErrors:topLevelErrors legacy:NO] APIErrors];
     }
-    else {
+    else if ([responseJSON isKindOfClass:[NSDictionary class]]) {
         id legacyErrors = responseJSON[@"errors"];
 
         if ([legacyErrors isKindOfClass:[NSArray class]]) {
@@ -105,7 +105,7 @@
 
     const id response = JSON[@"response"];
 
-    if ([response isKindOfClass:[NSDictionary class]]) {
+    if ([response isKindOfClass:[NSDictionary class]] || [response isKindOfClass:[NSArray class]]) {
         return response;
     }
 

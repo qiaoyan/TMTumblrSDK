@@ -10,7 +10,7 @@
 #import "TMURLSession.h"
 #import "TMRequestFactory.h"
 
-typedef void (^TMAPIClientCallback)(NSDictionary * _Nullable response, NSError * _Nullable error);
+typedef void (^TMAPIClientCallback)(id _Nullable response, NSError * _Nullable error);
 
 __attribute__((objc_subclassing_restricted))
 @interface TMAPIClient : NSObject
