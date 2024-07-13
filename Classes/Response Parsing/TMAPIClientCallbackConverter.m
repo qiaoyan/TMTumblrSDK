@@ -43,7 +43,7 @@
         TMParsedHTTPResponse * const parsedResponse = [parser parse];
 
         dispatch_async(dispatch_get_main_queue(), ^{
-            copyOfCallback(parsedResponse.JSONDictionary, parsedResponse.error);
+            copyOfCallback(parsedResponse.JSONDictionary ? parsedResponse.JSONDictionary : parsedResponse.JSONArray, parsedResponse.error);
         });
     };
 }
